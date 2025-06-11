@@ -33,7 +33,7 @@ export default function Home() {
           brand: "Trek",
           type: "Mountain",
           price: 89,
-          image: "/api/placeholder/400/300",
+          image: "https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?w=400&h=300&fit=crop",
           rating: 4.8,
           location: "Salt Lake City, UT"
         },
@@ -43,7 +43,7 @@ export default function Home() {
           brand: "Specialized",
           type: "Road",
           price: 125,
-          image: "/api/placeholder/400/300",
+          image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
           rating: 4.9,
           location: "Provo, UT"
         },
@@ -53,7 +53,7 @@ export default function Home() {
           brand: "Cannondale",
           type: "City",
           price: 65,
-          image: "/api/placeholder/400/300",
+          image: "https://images.pexels.com/photos/545004/pexels-photo-545004.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
           rating: 4.7,
           location: "Orem, UT"
         }
@@ -134,7 +134,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/api/placeholder/600/400"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
                   alt="Premium bikes available for lease"
                   fill
                   className="object-cover rounded-2xl shadow-xl"
