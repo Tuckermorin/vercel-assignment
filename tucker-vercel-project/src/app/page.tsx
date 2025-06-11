@@ -85,7 +85,10 @@ export default function Home() {
               <button className="text-gray-700 hover:text-blue-600 transition-colors">
                 Sign In
               </button>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <button
+                aria-label="get-started"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
                 Get Started
               </button>
             </div>
@@ -105,7 +108,11 @@ export default function Home() {
                 Discover the perfect bike through flexible monthly leasing. From mountain adventures to city commutes, find your ideal ride.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/browse" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors text-center">
+                <Link
+                  href="/browse"
+                  title="main-browse-link"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors text-center"
+                >
                   Browse Bikes
                 </Link>
                 <Link href="/list-bike" className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors text-center">
@@ -131,7 +138,7 @@ export default function Home() {
       {/* Stats Section */}
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div data-testid="stats-section" className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-blue-600 mb-2">{stats.totalBikes}+</div>
               <div className="text-gray-600">Bikes Available</div>
@@ -158,7 +165,11 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {featuredBikes.map((bike) => (
-              <div key={bike.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div
+                data-testid={`bike-card-${bike.id}`}
+                key={bike.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
                 <div className="relative h-48">
                   <Image
                     src={bike.image}
