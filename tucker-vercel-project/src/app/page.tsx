@@ -4,8 +4,19 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface Bike {
+  id: number;
+  title: string;
+  brand: string;
+  type: string;
+  price: number;
+  image: string;
+  rating: number;
+  location: string;
+}
+
 export default function Home() {
-  const [featuredBikes, setFeaturedBikes] = useState<any[]>([]);
+  const [featuredBikes, setFeaturedBikes] = useState<Bike[]>([]);
   const [stats, setStats] = useState({
     totalBikes: 0,
     activeLeasers: 0,
@@ -15,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     // Simulate API call for featured bikes
     const fetchFeaturedBikes = async () => {
-      const mockFeaturedBikes = [
+      const mockFeaturedBikes: Bike[] = [
         {
           id: 1,
           title: "Trek Mountain Explorer",
