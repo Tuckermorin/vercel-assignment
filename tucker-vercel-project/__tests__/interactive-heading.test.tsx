@@ -19,6 +19,12 @@ describe('InteractiveHeading component', () => {
     // Verify heading exists before clicking
     expect(screen.getByRole('heading', { name: 'Hello' })).toBeInTheDocument();
     
+    screen.getByRole('heading', { name: 'Hello' });
+    await userEvent.click(button);
+    await waitForElementToBeRemoved(() =>
+      screen.queryByRole('heading', { name: 'Hello' })
+    );
+    const heading = screen.getByRole('heading', { name: 'Hello' });
     await userEvent.click(button);
     
     // Since the removal appears to be synchronous, just check that it's gone
