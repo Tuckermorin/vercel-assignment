@@ -15,6 +15,11 @@ describe('InteractiveHeading component', () => {
   test('removes heading when toggle button clicked', async () => {
     render(<InteractiveHeading />);
     const button = screen.getByLabelText('toggle-heading');
+    screen.getByRole('heading', { name: 'Hello' });
+    await userEvent.click(button);
+    await waitForElementToBeRemoved(() =>
+      screen.queryByRole('heading', { name: 'Hello' })
+    );
     const heading = screen.getByRole('heading', { name: 'Hello' });
     await userEvent.click(button);
     await waitForElementToBeRemoved(heading);
