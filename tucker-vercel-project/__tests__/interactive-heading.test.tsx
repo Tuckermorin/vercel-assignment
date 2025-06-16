@@ -15,8 +15,13 @@ describe('InteractiveHeading component', () => {
   test('removes heading when toggle button clicked', async () => {
     render(<InteractiveHeading />);
     const button = screen.getByLabelText('toggle-heading');
-    const heading = screen.getByRole('heading', { name: 'Hello' });
+    
+    // Verify heading exists before clicking
+    expect(screen.getByRole('heading', { name: 'Hello' })).toBeInTheDocument();
+    
     await userEvent.click(button);
-    await waitForElementToBeRemoved(heading);
+    
+    // Since the removal appears to be synchronous, just check that it's gone
+    expect(screen.queryByRole('heading', { name: 'Hello' })).not.toBeInTheDocument();
   });
 });
