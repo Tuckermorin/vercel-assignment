@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import InteractiveHeading from '../src/components/InteractiveHeading';
-import { waitForElementToBeRemoved } from '@testing-library/react';
 
 describe('InteractiveHeading component', () => {
   test('updates heading text based on user input', async () => {
@@ -19,15 +18,10 @@ describe('InteractiveHeading component', () => {
     // Verify heading exists before clicking
     expect(screen.getByRole('heading', { name: 'Hello' })).toBeInTheDocument();
     
-    screen.getByRole('heading', { name: 'Hello' });
-    await userEvent.click(button);
-    await waitForElementToBeRemoved(() =>
-      screen.queryByRole('heading', { name: 'Hello' })
-    );
-    const heading = screen.getByRole('heading', { name: 'Hello' });
+    // Click the button
     await userEvent.click(button);
     
-    // Since the removal appears to be synchronous, just check that it's gone
+    // Check that it's gone (no need to wait since it's synchronous)
     expect(screen.queryByRole('heading', { name: 'Hello' })).not.toBeInTheDocument();
   });
 });
